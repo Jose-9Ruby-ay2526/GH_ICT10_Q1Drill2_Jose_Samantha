@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Basic Calculator</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <style>
+        body {
+            font-family: "Trebuchet MS", sans-serif;
+            background-color: #fff0f4;
+            color: #91445c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fffafa;
+            width: 380px;
+            padding: 30px;
+            border: 3px solid #ffd0df;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(190, 100, 130, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #9e4562;
+        }
+
+        p {
+            text-align: center;
+            color: #a35d73;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border: 2px solid #ffbfd2;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #ed8eac;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            background-color: #ed8eac;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d96f92;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            min-height: 60px;
+            background-color: #fff1f5;
+            border: 2px solid #ffd6e2;
+            border-radius: 15px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        #result {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>💗 Basic Calculator</h1>
+        <p>Enter two numbers and choose an operation!</p>
+
+        <label for="num1">First Number</label>
+        <input type="number" id="num1" placeholder="Enter first number">
+
+        <label for="num2">Second Number</label>
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div class="buttons">
+            <button py-click="adding_number">Addition (+)</button>
+            <button py-click="subtracting_number">Subtraction (-)</button>
+            <button py-click="multiplying_number">Multiplication (×)</button>
+            <button py-click="dividing_number">Division (÷)</button>
+        </div>
+
+        <div class="result-box">
+            <strong>Result:</strong>
+            <div id="result">Your answer will appear here!</div>
+        </div>
+
+    </div>
+
+    <script type="py" src="./main.py"></script>
+
+</body>
+</html>
