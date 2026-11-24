@@ -15,7 +15,7 @@
             margin: 0;
             padding: 30px 20px;
             font-family: "Trebuchet MS", sans-serif;
-            background: #fff0f3;
+            background-color: #fff0f3;
             color: #59464c;
             min-height: 100vh;
             display: flex;
@@ -31,38 +31,41 @@
 
         .header {
             text-align: center;
+            background-color: #f5aebe;
+            padding: 22px 12px;
             margin-bottom: 25px;
+            border-radius: 14px;
         }
 
         .header h1 {
-            color: #d98da2;
-            font-size: 27px;
-            margin-bottom: 6px;
+            margin: 0;
+            font-size: 25px;
+            color: white;
         }
 
         .header p {
-            color: #b58a97;
+            margin: 6px 0 0;
             font-size: 13px;
-            margin: 0;
+            color: #fff4f6;
         }
 
         .card {
-            background: #ffffff;
+            background-color: #ffffff;
             padding: 25px;
             border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(221, 160, 170, 0.15);
+            box-shadow: 0 10px 30px rgba(221, 160, 170, 0.15);
         }
 
         .field-group {
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
-        label {
+        .field-label {
             display: block;
-            margin-bottom: 8px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
             color: #9c6876;
+            margin-bottom: 8px;
         }
 
         input {
@@ -71,9 +74,9 @@
             padding: 13px;
             border: 1.5px solid #f8dce3;
             border-radius: 10px;
-            background: #fffbfc;
-            color: #59464c;
             font-size: 14px;
+            color: #59464c;
+            background-color: #fffbfc;
             outline: none;
         }
 
@@ -87,45 +90,39 @@
 
         button {
             width: 100%;
-            padding: 13px;
-            margin-top: 5px;
-            border: none;
-            border-radius: 10px;
-            background: #e9a5b5;
+            background-color: #e9a5b5;
             color: white;
+            border: none;
+            padding: 14px;
             font-size: 14px;
             font-weight: bold;
+            border-radius: 10px;
             cursor: pointer;
+            margin-top: 5px;
         }
 
         button:hover {
-            background: #d98da2;
+            background-color: #d98da2;
         }
 
         .result-box {
-            margin-top: 20px;
+            margin-top: 22px;
             padding: 18px;
-            min-height: 35px;
-            background: #fff0f3;
+            min-height: 45px;
+            background-color: #fff0f3;
             border: 1px solid #f8dce3;
             border-radius: 12px;
-            color: #9c6876;
             font-size: 13px;
+            color: #9c6876;
             line-height: 1.7;
             text-align: center;
         }
 
         .footer {
             text-align: center;
-            margin-top: 20px;
-            color: #c49aa6;
-            font-size: 11px;
-        }
-
-        @media (max-width: 450px) {
-            .card {
-                padding: 20px;
-            }
+            margin-top: 22px;
+            color: #b99ca4;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -142,21 +139,13 @@
         <div class="card">
 
             <div class="field-group">
-                <label for="first_name">FIRST NAME</label>
-                <input
-                    type="text"
-                    id="first_name"
-                    placeholder="Enter your first name"
-                >
+                <label class="field-label" for="first_name">FIRST NAME</label>
+                <input type="text" id="first_name" placeholder="Enter first name">
             </div>
 
             <div class="field-group">
-                <label for="last_name">LAST NAME</label>
-                <input
-                    type="text"
-                    id="last_name"
-                    placeholder="Enter your last name"
-                >
+                <label class="field-label" for="last_name">LAST NAME</label>
+                <input type="text" id="last_name" placeholder="Enter last name">
             </div>
 
             <button py-click="check_member">Check Membership</button>
