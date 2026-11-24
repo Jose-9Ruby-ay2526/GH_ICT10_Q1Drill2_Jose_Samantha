@@ -5,98 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Basic Calculator</title>
+    <title>ICT Club Checker</title>
 
     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
 
     <style>
         body {
+            margin: 0;
+            padding: 30px 20px;
             font-family: "Trebuchet MS", sans-serif;
-            background-color: #fff0f4;
-            color: #91445c;
+            background: #100e12;
+            color: #f5d65e;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            box-sizing: border-box;
         }
 
         .container {
-            background-color: #fffafa;
-            width: 380px;
-            padding: 30px;
-            border: 3px solid #ffd0df;
-            border-radius: 25px;
-            box-shadow: 0 8px 20px rgba(190, 100, 130, 0.08);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .light {
+            width: 38px;
+            height: 38px;
+            background: #00eaff;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            box-shadow: 0 0 12px #00eaff,
+                        0 0 25px #00eaff,
+                        0 0 40px #f5d65e;
         }
 
         h1 {
-            text-align: center;
-            color: #9e4562;
+            color: #f5c928;
+            font-size: 30px;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(245, 201, 40, 0.4);
         }
 
-        p {
-            text-align: center;
-            color: #a35d73;
+        .subtitle {
+            color: #a99b9b;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
         }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            font-weight: bold;
+        .card {
+            background: #202025;
+            padding: 25px;
+            border: 2px solid #8d782d;
+            border-top: 4px solid #a20e30;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(245, 201, 40, 0.12);
         }
 
-        input[type="number"] {
+        input {
             width: 100%;
             box-sizing: border-box;
-            padding: 13px;
-            border: 2px solid #ffbfd2;
-            border-radius: 12px;
-            font-size: 16px;
+            padding: 14px;
+            margin-bottom: 14px;
+            background: #0c0d11;
+            border: 1px solid #292a30;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
             outline: none;
         }
 
-        input[type="number"]:focus {
-            border-color: #ed8eac;
+        input:focus {
+            border-color: #e3bd38;
         }
 
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 20px;
+        input::placeholder {
+            color: #999;
         }
 
         button {
+            width: 100%;
             padding: 13px;
-            border: none;
-            border-radius: 12px;
-            background-color: #ed8eac;
-            color: white;
-            font-size: 16px;
+            margin-top: 5px;
+            background: linear-gradient(#c20e35, #8e0928);
+            border: 2px solid #d2aa35;
+            border-radius: 6px;
+            color: #f8d75a;
+            font-size: 15px;
             font-weight: bold;
+            letter-spacing: 3px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #d96f92;
+            background: #e01642;
         }
 
         .result-box {
-            margin-top: 25px;
-            padding: 20px;
-            min-height: 60px;
-            background-color: #fff1f5;
-            border: 2px solid #ffd6e2;
-            border-radius: 15px;
-            text-align: center;
-            overflow-wrap: anywhere;
+            margin-top: 20px;
+            padding: 18px;
+            min-height: 25px;
+            background: #191d20;
+            border-left: 5px solid #00dce5;
+            border-radius: 5px;
+            color: #f5d65e;
+            font-size: 13px;
+            line-height: 1.7;
+            box-shadow: 0 0 15px rgba(0, 220, 229, 0.08);
         }
 
-        #result {
-            line-height: 1.8;
+        footer {
+            margin-top: 50px;
+            padding: 15px;
+            background: #a00c30;
+            border-top: 3px solid #d4b13d;
+            color: #e5b8c3;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 23px;
+            }
+
+            .card {
+                padding: 18px;
+            }
         }
     </style>
 </head>
@@ -105,28 +143,38 @@
 
     <div class="container">
 
-        <h1>💗 Basic Calculator</h1>
-        <p>Enter two numbers and choose an operation!</p>
+        <div class="light"></div>
 
-        <label for="num1">First Number</label>
-        <input type="number" id="num1" placeholder="Enter first number">
+        <h1>ICT CLUB CHECKER</h1>
+        <div class="subtitle">MEMBERSHIP REGISTRATION SYSTEM</div>
 
-        <label for="num2">Second Number</label>
-        <input type="number" id="num2" placeholder="Enter second number">
+        <div class="card">
 
-        <div class="buttons">
-            <button py-click="adding_number">Addition (+)</button>
-            <button py-click="subtracting_number">Subtraction (-)</button>
-            <button py-click="multiplying_number">Multiplication (×)</button>
-            <button py-click="dividing_number">Division (÷)</button>
+            <input
+                type="text"
+                id="first_name"
+                placeholder="First Name"
+            >
+
+            <input
+                type="text"
+                id="last_name"
+                placeholder="Last Name"
+            >
+
+            <button py-click="check_member">ENTER</button>
+
         </div>
 
-        <div class="result-box">
-            <strong>Result:</strong>
-            <div id="result">Your answer will appear here!</div>
+        <div class="result-box" id="result">
+            Your membership result will appear here.
         </div>
 
     </div>
+
+    <footer>
+        © 2026 ICT Club • Second Quarter
+    </footer>
 
     <script type="py" src="./main.py"></script>
 
