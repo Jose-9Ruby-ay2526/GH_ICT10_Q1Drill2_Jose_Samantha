@@ -15,8 +15,8 @@
             margin: 0;
             padding: 30px 20px;
             font-family: "Trebuchet MS", sans-serif;
-            background: #100e12;
-            color: #f5d65e;
+            background: #fff0f3;
+            color: #59464c;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -26,114 +26,105 @@
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
+        }
+
+        .header {
             text-align: center;
+            margin-bottom: 25px;
         }
 
-        .light {
-            width: 38px;
-            height: 38px;
-            background: #00eaff;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            box-shadow: 0 0 12px #00eaff,
-                        0 0 25px #00eaff,
-                        0 0 40px #f5d65e;
+        .header h1 {
+            color: #d98da2;
+            font-size: 27px;
+            margin-bottom: 6px;
         }
 
-        h1 {
-            color: #f5c928;
-            font-size: 30px;
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 10px rgba(245, 201, 40, 0.4);
-        }
-
-        .subtitle {
-            color: #a99b9b;
-            font-size: 11px;
-            letter-spacing: 3px;
-            margin-bottom: 35px;
+        .header p {
+            color: #b58a97;
+            font-size: 13px;
+            margin: 0;
         }
 
         .card {
-            background: #202025;
+            background: #ffffff;
             padding: 25px;
-            border: 2px solid #8d782d;
-            border-top: 4px solid #a20e30;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(245, 201, 40, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(221, 160, 170, 0.15);
+        }
+
+        .field-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #9c6876;
         }
 
         input {
             width: 100%;
             box-sizing: border-box;
-            padding: 14px;
-            margin-bottom: 14px;
-            background: #0c0d11;
-            border: 1px solid #292a30;
-            border-radius: 5px;
-            color: white;
+            padding: 13px;
+            border: 1.5px solid #f8dce3;
+            border-radius: 10px;
+            background: #fffbfc;
+            color: #59464c;
             font-size: 14px;
             outline: none;
         }
 
         input:focus {
-            border-color: #e3bd38;
+            border-color: #e9a5b5;
         }
 
         input::placeholder {
-            color: #999;
+            color: #c5aab2;
         }
 
         button {
             width: 100%;
             padding: 13px;
             margin-top: 5px;
-            background: linear-gradient(#c20e35, #8e0928);
-            border: 2px solid #d2aa35;
-            border-radius: 6px;
-            color: #f8d75a;
-            font-size: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #e9a5b5;
+            color: white;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 3px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #e01642;
+            background: #d98da2;
         }
 
         .result-box {
             margin-top: 20px;
             padding: 18px;
-            min-height: 25px;
-            background: #191d20;
-            border-left: 5px solid #00dce5;
-            border-radius: 5px;
-            color: #f5d65e;
+            min-height: 35px;
+            background: #fff0f3;
+            border: 1px solid #f8dce3;
+            border-radius: 12px;
+            color: #9c6876;
             font-size: 13px;
             line-height: 1.7;
-            box-shadow: 0 0 15px rgba(0, 220, 229, 0.08);
+            text-align: center;
         }
 
-        footer {
-            margin-top: 50px;
-            padding: 15px;
-            background: #a00c30;
-            border-top: 3px solid #d4b13d;
-            color: #e5b8c3;
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #c49aa6;
             font-size: 11px;
-            letter-spacing: 1px;
         }
 
-        @media (max-width: 500px) {
-            h1 {
-                font-size: 23px;
-            }
-
+        @media (max-width: 450px) {
             .card {
-                padding: 18px;
+                padding: 20px;
             }
         }
     </style>
@@ -143,38 +134,44 @@
 
     <div class="container">
 
-        <div class="light"></div>
-
-        <h1>ICT CLUB CHECKER</h1>
-        <div class="subtitle">MEMBERSHIP REGISTRATION SYSTEM</div>
+        <div class="header">
+            <h1>ICT Club Checker</h1>
+            <p>Membership Registration System</p>
+        </div>
 
         <div class="card">
 
-            <input
-                type="text"
-                id="first_name"
-                placeholder="First Name"
-            >
+            <div class="field-group">
+                <label for="first_name">FIRST NAME</label>
+                <input
+                    type="text"
+                    id="first_name"
+                    placeholder="Enter your first name"
+                >
+            </div>
 
-            <input
-                type="text"
-                id="last_name"
-                placeholder="Last Name"
-            >
+            <div class="field-group">
+                <label for="last_name">LAST NAME</label>
+                <input
+                    type="text"
+                    id="last_name"
+                    placeholder="Enter your last name"
+                >
+            </div>
 
-            <button py-click="check_member">ENTER</button>
+            <button py-click="check_member">Check Membership</button>
+
+            <div class="result-box" id="result">
+                Your membership result will appear here.
+            </div>
 
         </div>
 
-        <div class="result-box" id="result">
-            Your membership result will appear here.
+        <div class="footer">
+            Made with love ♡ for ICT Club
         </div>
 
     </div>
-
-    <footer>
-        © 2026 ICT Club • Second Quarter
-    </footer>
 
     <script type="py" src="./main.py"></script>
 
